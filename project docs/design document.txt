@@ -1,0 +1,128 @@
+Project goal:
+     a web app that recommends movies and TV shows based on user preferences.
+     It offers features such as browsing popular titles, searching for specific ones, 
+     and personalized recommendations based on user viewing history and ratings.
+
+Project Design:
+    the project will build using react library
+    its will include these pages:
+        1-- sign in page:will include form for sgin in operation
+        2-- sign up page:will include form for sgin up operation
+        3-- setup profile: The app or website can ask the user to create a profile and provide 
+            information about their favorite genres,languages, actors, directors, and other preferences
+        4-- dashboard page:
+                []--some info of user
+                []--favorite movies and tv shows
+                []--list of shows that already viewd
+                []--list of shows to be watched later
+        5-- home page:
+                []--search bar:search by name show or actor name or by certain category or rating
+                []--trend shows:dsiplay list of most trending shows so far..
+                []--shows section:displays recommended movies and TV shows based on the user's preferences
+        6-- Movie/TV show details page: 
+                This page should provide detailed information about a specific movie or TV show, 
+                such as the plot summary, cast and crew, release date, rating, and reviews.
+
+Project total available time:
+ 13 days * 6 hours = 78 hours
+
+Project milestones:
+    1--build backend side
+        task1:build Authentication & Authrization:
+            time:5 hour
+            difficulty:super important
+            dod:done the Authentication and Authrization process
+
+        task2:build preferences user:
+            time:5 hour
+            difficulty:super important
+            dod: a setup account function
+                []--get the preferences from the client
+                []--save it to the server
+
+        task3:build all functionality for dashboard user:
+            time:5 hour
+            difficulty:super implement
+            dod: build routes for each these topics
+                []--favorite shows
+                []--list of viewed history (viewd shows)
+                []--list of shows to be watched later
+
+        task4:build all functionality for home page:
+            time:5 hour
+            difficulty:super implement
+            dod: build routes for each these topics
+                []--get filterd showed
+                []--get all trend shows
+                []--get recommended shows for user
+        
+        task5:build a function that provide detials for show:
+             time:1 hour
+             difficulty:super implement
+             dod: Movie/TV show details route:
+    2-- create a client side  UI:
+            
+            task 1:create home Page:
+                time:10 hour
+                difficulty:super important
+                dod:build all sections of home page:
+                    []- create and customize search bar 
+                    []- create and customize trend shows 
+                    []- create and customize shows section 
+                    
+            task 2:create the header and mobile menu
+                time:5 hour
+                difficulty: important
+                dod:contain logo and navbar
+            
+            task 3:create the dashboard page:
+                    time:10 hour
+                    difficulty: important
+                    dod:build all sections of dashboard page:
+                        []-create a card that descripe user detials,
+                        []-create favorite shows section
+                        []-create viewed shows section
+                        []-create watched later shows section
+            
+            task 4:create sgin up page
+                    time: 5 hours
+                    difficulty: important
+                    dod:build createUser funtction and sgin up form:
+                        []-after user fill his details using the form [name,mail,password]
+                        []-using creatUser function will create new account:
+                            []--checking if current user already exist using api 
+                            []--if not exist send the user to the server in order to save it
+                            []--if user exist show to him an appropriate message
+
+            task 5:create sgin in page
+                    time: 2 hours
+                    difficulty: important
+                    dod:sgin in form
+                        []-after user fill his details using the form [name,mail,password]
+                        []-using creatUser function will create new account:
+                                []--checking if current user already exist using api
+                                []--if not exist  show to him an appropriate message
+                                []--if user exist go to home page
+
+            task 6:create setup profile page:
+                        time: 2 hours
+                        difficulty:important
+                        dod:determine a user's preferences:
+                            []-create a list of actors
+                            []-create a list of languages
+                            []-create a list of genres
+
+            task 7:Movie/TV show details page:
+                 time: 8 hours
+                 difficulty:important
+                 dod:build full page for show:
+                    []--card of user detials
+                    []--some related shows
+
+            task 8:create the footer
+                time:20 minutes
+                difficulty: less important
+                dod:contain rights reserved and some text
+    3-- fix resposivety issues : 2 hours
+    4-- deploy the web site : 6 hours
+    *--total estimated time:70.3 hours
