@@ -22,7 +22,7 @@ router.post('/login', async (req, res) => {
       }
   
       // Generate and return an access token
-      const token = jwt.sign({ email, role: user.role }, process.env.JWT_SECRET,{
+      const token = jwt.sign({ email,id:user._id,role: user.role }, process.env.JWT_SECRET,{
         expiresIn:'1d'
       });
        //save the token in cookie
