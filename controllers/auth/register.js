@@ -4,7 +4,7 @@ const bcrypt=require('bcrypt');
 const { db } = require('../../services/database');
 router.post('/register', async (req, res) => {
     try {
-      const { email, password, username } = req.body;
+      const { email, password, name } = req.body;
   
       // Check if user already exists
       const userExists = await db.collection('users').findOne({ email });
@@ -19,8 +19,8 @@ router.post('/register', async (req, res) => {
       const newUser = {
         email,
         password: hash,
-        username,
-        role: 'user'
+        name
+        // role: 'user'
       };
       await db.collection('users').insertOne(newUser);
   
