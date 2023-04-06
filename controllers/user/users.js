@@ -12,11 +12,11 @@ res.send(users)
 router.delete(Api+'/users/:id',async(req,res)=>{
 const {id}=req.params
 try {
-   const res= await db.collection('users').deleteOne({_id:new ObjectId(id)})
-   if(res.deletedCount===1)
-    res.send('user deleted successfully')
-    else
-    throw new Error()
+   const result= await db.collection('users').deleteOne({_id:new ObjectId(id)})
+   if(result.deletedCount===1)
+   res.send('user deleted successfully')
+   else
+   res.send('deleting user fiald!!')
 } catch (error) {
     res.send({
         message:'occured error While handel the process'
