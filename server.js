@@ -18,6 +18,9 @@ server.use(require('./controllers/auth/login'))
 server.use(require('./controllers/auth/register'))
 server.use(require('./controllers/user/users'))
 server.use(require('./controllers/user/setupAccount'))
+server.use(require('./controllers/shows/favoriteShows'))
+server.use(require('./controllers/shows/viewdShows'))
+server.use(require('./controllers/shows/watchLaterShows'))
 server.use(require('./controllers/shows/shows'))
 
 server.listen(5000, () => {
