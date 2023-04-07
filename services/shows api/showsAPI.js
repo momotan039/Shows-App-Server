@@ -19,4 +19,16 @@ const getTrend=async(mediaType,time)=>{
 }
 
 
-module.exports = { getAllGenres,getTrend};
+
+const getShowById=async(mediaType,id,lang)=>{
+  
+  const res=await axios.get(`${Shows_API}/${mediaType}/${id}`,{
+    params:{
+      api_key:KeyApi,
+      language:lang
+    }
+  })
+  return res.data
+}
+
+module.exports = { getAllGenres,getTrend,getShowById};
