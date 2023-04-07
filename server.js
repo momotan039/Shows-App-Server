@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const server = express();
+const cors=require('cors')
 const authorization = require('./middleware/authorization');
 const { Api } = require('./services/constant');
 const { connect } = require('./services/database');
@@ -13,6 +14,7 @@ server.use(cookieParser())
 server.use(Api,(req,res,next)=>authorization(req,res,next))
 server.use(express.json())
 server.use(express.query())
+server.use(cors())
 //add routes
 server.use(require('./controllers/auth/login'))
 server.use(require('./controllers/auth/register'))
