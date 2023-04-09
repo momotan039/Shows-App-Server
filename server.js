@@ -14,7 +14,11 @@ server.use(cookieParser())
 server.use(Api,(req,res,next)=>authorization(req,res,next))
 server.use(express.json())
 server.use(express.query())
-server.use(cors())
+
+server.use(cors({
+  credentials:true,
+  origin:'http://localhost:5173'
+}))
 //add routes
 server.use(require('./controllers/auth/login'))
 server.use(require('./controllers/auth/register'))
