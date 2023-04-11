@@ -15,7 +15,8 @@ router.post(Api + "/setup-account", async (req, res) => {
         returnDocument:true
       }
     );
-    res.send({...result.value,...preferences})
+    const {password,...user}={...result.value,...preferences}
+    res.send(user)
   } catch (error) {
     res.send(error+'');
   }
