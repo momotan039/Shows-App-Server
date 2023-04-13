@@ -1,5 +1,6 @@
 const { default: axios } = require("axios")
 const { Shows_API, KeyApi } = require("../constant")
+const { customizeShows } = require("../showsHelper")
 
 
 const getMovies=async(query)=>{
@@ -11,7 +12,7 @@ const getMovies=async(query)=>{
         api_key:KeyApi
       }
     })
-    return res.data
+    return customizeShows(res.data,'movie')
 }
 
 const getMyMovies=async(user,queries)=>{
@@ -25,7 +26,7 @@ const getMyMovies=async(user,queries)=>{
       page:queries.page??1
     }
   })
-  return res.data
+  return customizeShows(res.data,'movie')
 }
 
 
