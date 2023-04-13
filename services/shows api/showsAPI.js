@@ -1,13 +1,6 @@
 const { default: axios } = require("axios");
 const { KeyApi, Shows_API } = require("../constant");
-
-const getAllGenres = async () => {
-    const res = await axios.get(
-      `${Shows_API}/genre/list?api_key=${KeyApi}`
-    );
-    return res.data.genres;
-};
-
+const { customizeShows } = require("../showsHelper");
 
 const getTrend=async(mediaType,time)=>{
   const res=await axios.get(`${Shows_API}/trending/${mediaType}/${time}`,{
@@ -15,7 +8,7 @@ const getTrend=async(mediaType,time)=>{
       api_key:KeyApi
     }
   })
-  return res.data
+  return await customizeShows(res.data)
 }
 
 
@@ -38,7 +31,7 @@ const getSearchShows=async(mediaType,searchedFor)=>{
       query:searchedFor
     }
   })
-  return res.data
+  return customizeShows(res.data,mediaType)
 }
 
-module.exports = { getAllGenres,getTrend,getShowById,getSearchShows};
+module.exports = {getTrend,getShowById,getSearchShows};
