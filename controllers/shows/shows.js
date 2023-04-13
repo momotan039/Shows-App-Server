@@ -1,13 +1,11 @@
 const express = require("express");
-const { ObjectId } = require("mongodb");
 const { Api, Error_Message } = require("../../services/constant");
-const { db } = require("../../services/database");
 const { getMovies, getMyMovies } = require("../../services/shows api/movies");
 const {
   getTrend,
   getShowById,
-  getAllGenres,
   getSearchShows,
+  getAllGenres,
 } = require("../../services/shows api/showsAPI");
 const { getTvShows, getMyTvShows } = require("../../services/shows api/tv");
 const router = express.Router();

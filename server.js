@@ -6,7 +6,6 @@ const authorization = require('./middleware/authorization');
 const { Api } = require('./services/constant');
 const { connect } = require('./services/database');
 const cookieParser = require("cookie-parser");
-const { getAllGenres } = require('./services/shows api/showsAPI');
 //connect to database
 connect()
 
