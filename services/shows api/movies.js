@@ -14,14 +14,15 @@ const getMovies=async(query)=>{
     return res.data
 }
 
-const getMyMovies=async(user)=>{
+const getMyMovies=async(user,queries)=>{
   const {lang,show_lang,genres}=user.preferences
   const res=await axios.get(`${Shows_API}/discover/movie`,{
     params:{
       language:lang,
       with_genres:genres.map(g=>g.id).join(','),
       with_original_language:show_lang,
-      api_key:KeyApi
+      api_key:KeyApi,
+      page:queries.page??1
     }
   })
   return res.data
