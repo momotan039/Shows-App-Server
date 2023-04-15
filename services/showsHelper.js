@@ -38,4 +38,4 @@ const getAllGenres = async () => {
     return genres_movie.concat(genres_tv);
   };
   
-module.exports={customizeShows}
+module.exports={customizeShows,getAllGenres}

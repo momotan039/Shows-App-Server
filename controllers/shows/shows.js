@@ -5,9 +5,9 @@ const {
   getTrend,
   getShowById,
   getSearchShows,
-  getAllGenres,
 } = require("../../services/shows api/showsAPI");
 const { getTvShows, getMyTvShows } = require("../../services/shows api/tv");
+const { getAllGenres } = require("../../services/showsHelper");
 const router = express.Router();
 
 router.get(Api + "/shows/trending", async (req, res) => {
