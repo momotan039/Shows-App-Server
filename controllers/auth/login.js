@@ -34,8 +34,13 @@ router.post("/login", async (req, res) => {
 
     //copeied user without password
     const { password: pass, ...copy_user } = user;
-
-    res.json({ token, user: copy_user });
+    
+    //get user shows lists
+    const favorite= await db.collection('favorite_shows').find({user_id:user._id}).toArray()
+    const viewed= await db.collection('viewd_shows').find({user_id:user._id}).toArray()
+    const watchLater= await db.collection('watch_later_shows').find({user_id:user._id}).toArray()
+    
+    res.json({user:{...copy_user,favorite,viewed,watchLater}});
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
