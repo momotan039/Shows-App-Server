@@ -26,7 +26,7 @@ router.delete(Api+'/shows/viewd/:id',async(req,res)=>{
 })
 router.post(Api+'/shows/viewd',(req,res)=>{
     const {user_id,...data}=req.body
-    const viewd={...data,user_id:new ObjectId(user_id)}
+    const viewd={...data,user_id:new ObjectId(req.user._id)}
     db.collection('viewd_shows').insertOne(viewd)
     .then((data)=>{
         res.send('This show add successfuly to viewd shows list')

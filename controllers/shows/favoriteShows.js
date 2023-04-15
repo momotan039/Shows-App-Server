@@ -8,13 +8,12 @@ router.get(Api+'/shows/favorite',async(req,res)=>{
     const shows= await db.collection('favorite_shows').find({user_id:req.user._id}).toArray()
     res.send(shows)
 })
+
 router.delete(Api+'/shows/favorite/:id',async(req,res)=>{
     try {
         const { id } = req.params;
-        console.log(id);
         // Find the show by user id and show id
-        const show = await db.collection('favorite_shows').deleteOne({_id:new ObjectId(id)});
-        console.log(show);
+        const show = await db.collection('favorite_shows').deleteOne({user_id:req.user._id,id:parseInt(id)});
         if (!show) {
           return res.status(404).json({ message: 'Show not found' });
         }
@@ -26,8 +25,8 @@ router.delete(Api+'/shows/favorite/:id',async(req,res)=>{
 })
 
 router.post(Api+'/shows/favorite',(req,res)=>{
-    const {user_id,...data}=req.body
-    const favorite={...data,user_id:new ObjectId(user_id)}
+    const {...data}=req.body
+    const favorite={...data,user_id:new ObjectId(req.user._id)}
     db.collection('favorite_shows').insertOne(favorite)
     .then((data)=>{
         res.send('This show add successfuly to favorite shows list')
