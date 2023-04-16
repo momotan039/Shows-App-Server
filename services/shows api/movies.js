@@ -9,6 +9,7 @@ const getMovies=async(query)=>{
         with_cast:query.cast,
         with_genres:query.genres,
         with_original_language:query.show_lang,
+        page:query.page,
         api_key:KeyApi
       }
     })

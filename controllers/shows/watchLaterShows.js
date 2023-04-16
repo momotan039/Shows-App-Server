@@ -13,7 +13,7 @@ router.delete(Api+'/shows/watch-later/:id',async(req,res)=>{
         const { id } = req.params;
         console.log(id);
         // Find the show by user id and show id
-        const show = await db.collection('watch_later_shows').deleteOne({_id:new ObjectId(id)});
+        const show = await db.collection('watch_later_shows').deleteOne({user_id:req.user._id,id:parseInt(id)});
         console.log(show);
         if (!show) {
           return res.status(404).json({ message: 'Show not found' });

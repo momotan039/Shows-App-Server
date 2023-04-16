@@ -8,20 +8,22 @@ const getTvShows=async(query)=>{
         with_cast:query.cast,
         with_genres:query.genres,
         with_original_language:query.show_lang,
-        api_key:KeyApi
+        api_key:KeyApi,
+        page:query.page,
       }
     })
     return res.data
 }
 
-const getMyTvShows=async(user)=>{
+const getMyTvShows=async(user,queries)=>{
   const {lang,show_lang,genres}=user.preferences
   const res=await axios.get(`${Shows_API}/discover/tv`,{
     params:{
       language:lang,
       with_genres:genres.map(g=>g.id).join(','),
       with_original_language:show_lang,
-      api_key:KeyApi
+      api_key:KeyApi,
+      page:queries.page,
     }
   })
   return res.data

@@ -32,7 +32,7 @@ router.get(Api + "/shows/:type/recommended", async (req, res) => {
   const { type } = req.params;
   let shows;
   if (type === "movie") shows = await getMyMovies(req.user,req.query);
-  else if (type === "tv") shows = await getMyTvShows(req.user);
+  else if (type === "tv") shows = await getMyTvShows(req.user,req.query);
   else {
     res.send("invalid type show!!");
     return;
