@@ -1,5 +1,6 @@
 const { default: axios } = require("axios")
 const { Shows_API, KeyApi } = require("../constant")
+const { customizeShows } = require("../showsHelper")
 
 
 const getTvShows=async(query)=>{
@@ -26,7 +27,7 @@ const getMyTvShows=async(user,queries)=>{
       page:queries.page,
     }
   })
-  return res.data
+  return customizeShows(res.data,'tv')
 }
 
 
