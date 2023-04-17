@@ -34,4 +34,13 @@ const getSearchShows=async(mediaType,searchedFor)=>{
   return customizeShows(res.data,mediaType)
 }
 
-module.exports = {getTrend,getShowById,getSearchShows};
+const getActorsShows=async(mediaType,id)=>{
+  const res=await axios.get(`${Shows_API}/${mediaType}/${id}/credits`,{
+    params:{
+      api_key:KeyApi
+    }
+  })
+  return res.data
+}
+
+module.exports = {getActorsShows,getTrend,getShowById,getSearchShows};
