@@ -5,6 +5,7 @@ const {
   getTrend,
   getShowById,
   getSearchShows,
+  getActorsShows,
 } = require("../../services/shows api/showsAPI");
 const { getTvShows, getMyTvShows } = require("../../services/shows api/tv");
 const { getAllGenres } = require("../../services/showsHelper");
@@ -63,6 +64,15 @@ router.get(Api + "/search/:type/:searchedFor", async(req, res) => {
   await getSearchShows(type,searchedFor)
     .then((data) =>{
       res.send(data)
+    })
+    .catch((err) => res.send(err));
+});
+
+router.get(Api + "/casts/:type/:id", async(req, res) => {
+  const {type,id}=req.params
+  await getActorsShows(type,id)
+    .then((data) =>{
+      res.send(data.cast)
     })
     .catch((err) => res.send(err));
 });
