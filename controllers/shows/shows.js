@@ -11,8 +11,17 @@ const { getTvShows, getMyTvShows } = require("../../services/shows api/tv");
 const { getAllGenres } = require("../../services/showsHelper");
 const router = express.Router();
 
-router.get(Api + "/shows/trending", async (req, res) => {
-  const data = await getTrend("all", "day");
+router.get(Api + "/shows/trending/:type", async (req, res) => {
+  const {type}=req.params
+  switch (type) {
+    case 'movie':
+      break;
+      case 'tv':
+        break;
+    default:
+      return res.send({message:'Invalid media type!!!'})
+  }
+  const data = await getTrend(type, "day");
   const result={...data,results:data.results.slice(0,4)}
   res.send(result);
 });
