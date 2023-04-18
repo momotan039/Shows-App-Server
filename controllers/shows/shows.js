@@ -61,7 +61,7 @@ router.get(Api + "/genres", async(req, res) => {
 
 router.get(Api + "/search/:type/:searchedFor", async(req, res) => {
   const {searchedFor,type}=req.params
-  await getSearchShows(type,searchedFor)
+  await getSearchShows(type,searchedFor,req.query)
     .then((data) =>{
       res.send(data)
     })
