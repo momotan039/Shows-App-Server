@@ -24,11 +24,12 @@ const getShowById=async(mediaType,id,lang)=>{
 }
 
 
-const getSearchShows=async(mediaType,searchedFor)=>{
+const getSearchShows=async(mediaType,searchedFor,query)=>{
   const res=await axios.get(`${Shows_API}/search/${mediaType}`,{
     params:{
       api_key:KeyApi,
-      query:searchedFor
+      query:searchedFor,
+      page:query.page
     }
   })
   return customizeShows(res.data,mediaType)
