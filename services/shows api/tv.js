@@ -21,7 +21,7 @@ const getMyTvShows=async(user,queries)=>{
   const res=await axios.get(`${Shows_API}/discover/tv`,{
     params:{
       language:lang,
-      with_genres:genres.map(g=>g.id).join(','),
+      with_genres:genres.map(g=>g.id).join('|'),
       with_original_language:show_lang,
       api_key:KeyApi,
       page:queries.page,
