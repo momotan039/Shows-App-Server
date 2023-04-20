@@ -11,10 +11,8 @@ router.get(Api+'/shows/viewd',async(req,res)=>{
 router.delete(Api+'/shows/viewd/:id',async(req,res)=>{
     try {
         const { id } = req.params;
-        console.log(id);
         // Find the show by user id and show id
         const show = await db.collection('viewd_shows').deleteOne({user_id:req.user._id,id:parseInt(id)});
-        console.log(show);
         if (!show) {
           return res.status(404).json({ message: 'Show not found' });
         }
