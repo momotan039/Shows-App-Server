@@ -3,7 +3,6 @@ const { jwt } = require("../services/constant");
 const { db } = require("../services/database");
 function authorization(req, res, next) {
   const token =  req.cookies.token;
-  console.log(req.cookies);
   //check if is token
     if (!token) {
       res.status(401).json({ message: 'Unauthorized' });
