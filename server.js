@@ -13,7 +13,7 @@ connect()
 server.use(cookieParser())
 server.use(cors({
   credentials:true,
-  origin:'http://127.0.0.1:5173'
+  origin:'https://recommended-shows-mt.netlify.app'
 }))
 server.use(Api,(req,res,next)=>authorization(req,res,next))
 server.use(express.json())
