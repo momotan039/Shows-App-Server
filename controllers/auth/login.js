@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
     );
     console.log(req.hostname);
     //save the token in cookie
-    res.cookie("token", token);
+    res.cookie("token", token, { httpOnly: true });
     //copeied user without password
     const { password: pass, ...copy_user } = user;
     
@@ -40,7 +40,7 @@ router.post("/login", async (req, res) => {
     const viewed= await db.collection('viewd_shows').find({user_id:user._id}).toArray()
     const watchLater= await db.collection('watch_later_shows').find({user_id:user._id}).toArray()
     
-    res.json({user:{...copy_user,favorite,viewed,watchLater}});
+    res.json({user:{...copy_user,favorite,viewed,watchLater},token:token});
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
