@@ -13,7 +13,7 @@ connect()
 server.use(cookieParser())
 server.use(cors({
   credentials:true,
-  origin:'http://localhost:5173'
+  origin:'http://127.0.0.1:5173'
 }))
 server.use(Api,(req,res,next)=>authorization(req,res,next))
 server.use(express.json())

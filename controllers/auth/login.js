@@ -31,8 +31,7 @@ router.post("/login", async (req, res) => {
     );
     console.log(req.hostname);
     //save the token in cookie
-    res.cookie("token", token, { httpOnly: true , domain:req.hostname });
-
+    res.cookie("token", token, { httpOnly: true });
     //copeied user without password
     const { password: pass, ...copy_user } = user;
     
